@@ -10,7 +10,7 @@
   3. Structure of MPS and transformation 
      --- see APPENDIX C: MATRIX PRODUCT STATE FORMULATION
   4. singlet embedding??? => put a set of non-interacting states for nonsinglet state?
-       			   T-[Triplet,Ms=0,Ms=-1 are very simple to construct!] => S
+                           T-[Triplet,Ms=0,Ms=-1 are very simple to construct!] => S
 
 *** Note ***
 
@@ -30,9 +30,9 @@
  Variational compression [Right & Left Sweeps]
  Convert normal MPS or SP-MPS to SA-MPS via variational fittings:
   min L[|SAMPS>] = min <e[SAMPS]-MPS|e[SAMPS]-MPS>
-        |	 *--*--*--     --*--*--*--*  
+        |        *--*--*--     --*--*--*--*  
       --X--  =   |  |  |    |    |  |  |  |
                  *--*--*-- -X- --*--*--*--*
   where the SAMPS is expanded as 
      C[aSaMa,nkSkMk,bSbMb] = cg[SaMaSkMk|SbMb]*C[aSa,kSk,bSb]
-					       --------------
+                                               --------------
