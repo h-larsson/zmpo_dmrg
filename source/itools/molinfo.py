@@ -36,7 +36,7 @@ class class_molinfo:
          try:     
             f = h5py.File(fname, "r")
          except IOError:
-            print "\nerror in molinfo.loadHam: No such file =",fname
+            print("\nerror in molinfo.loadHam: No such file =",fname)
             status=1
       status = self.comm.bcast(status)
       if status == 1: exit(1)
@@ -67,20 +67,20 @@ class class_molinfo:
       self.comm.Bcast( [self.orbsymSz,MPI.INT] )
       if self.comm.rank == 0: 
          f.close()         
-         print " loadHam sucessfully!"
+         print(" loadHam sucessfully!")
       return 0
 
    # Define partition of operators
    def build(self):   
       self.comm.Barrier()
-      print '[molinfo.build] rank=',self.comm.rank 
+      print('[molinfo.build] rank=',self.comm.rank) 
       #
       # tmpdir:
       # dirname = dateMar_29_13_07_20_2016_rank3_pid71559_mpo_dmrg
       #
       pid=str(os.getpid())
-      dat=string.join(time.asctime().split(':'))
-      dat=string.join(dat.split(' ')[1:],'_')
+      dat="".join(time.asctime().split(':'))
+      dat="_".join(dat.split(' ')[1:])
       suffix='date'+dat+'_rank'+str(self.comm.rank)+'_pid'+pid
       dirname = suffix+'_mpo_dmrg'
       self.path = self.tmpdir+dirname
@@ -93,9 +93,9 @@ if __name__ == '__main__':
    mol = class_molinfo()
    mol.comm = comm
    mol.loadHam()
-   print "\n === TEST of molinfo ==="
-   print " mol.nelec = ",mol.nelec
-   print " mol.sbas  = ",mol.sbas
-   print " mol.enuc  = ",mol.enuc
-   print " mol.escf  = ",mol.escf
-   print " mol.ecor  = ",mol.ecor
+   print("\n === TEST of molinfo ===")
+   print(" mol.nelec = ",mol.nelec)
+   print(" mol.sbas  = ",mol.sbas)
+   print(" mol.enuc  = ",mol.enuc)
+   print(" mol.escf  = ",mol.escf)
+   print(" mol.ecor  = ",mol.ecor)

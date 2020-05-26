@@ -2,24 +2,6 @@
 #include <stdio.h>
 #include <math.h>
 
-int symAllowed(int rank, int nqnum, int *ndims, int *status, int *allowed,
-	       double *a0, double *a1, double *a2, double *a3, 
-	       double *a4, double *a5, double *a6, double *a7)
-{
-   /* maxrank = 10 */
-   //printf("rank=%d\n",rank);
-   switch (rank){
-      case 2: symAllowed2(rank,nqnum,ndims,status,allowed,a0,a1,a2,a3,a4,a5,a6,a7); break;
-      case 3: symAllowed3(rank,nqnum,ndims,status,allowed,a0,a1,a2,a3,a4,a5,a6,a7); break;
-      case 4: symAllowed4(rank,nqnum,ndims,status,allowed,a0,a1,a2,a3,a4,a5,a6,a7); break;
-      case 5: symAllowed5(rank,nqnum,ndims,status,allowed,a0,a1,a2,a3,a4,a5,a6,a7); break;
-      case 6: symAllowed6(rank,nqnum,ndims,status,allowed,a0,a1,a2,a3,a4,a5,a6,a7); break;
-      case 7: symAllowed7(rank,nqnum,ndims,status,allowed,a0,a1,a2,a3,a4,a5,a6,a7); break;
-      case 8: symAllowed8(rank,nqnum,ndims,status,allowed,a0,a1,a2,a3,a4,a5,a6,a7); break;
-      default : printf("error\n"); exit(1);
-   }
-   return 0;
-}
 
 int symAllowed2(int rank, int nqnum, int *ndims, int *status, int *allowed,
  	        double *a0, double *a1, double *a2, double *a3, 
@@ -476,5 +458,24 @@ int symAllowed8(int rank, int nqnum, int *ndims, int *status, int *allowed,
 	 } // i2
       } // i1
    } // i0
+   return 0;
+}
+
+int symAllowed(int rank, int nqnum, int *ndims, int *status, int *allowed,
+	       double *a0, double *a1, double *a2, double *a3, 
+	       double *a4, double *a5, double *a6, double *a7)
+{
+   /* maxrank = 10 */
+   //printf("rank=%d\n",rank);
+   switch (rank){
+      case 2: symAllowed2(rank,nqnum,ndims,status,allowed,a0,a1,a2,a3,a4,a5,a6,a7); break;
+      case 3: symAllowed3(rank,nqnum,ndims,status,allowed,a0,a1,a2,a3,a4,a5,a6,a7); break;
+      case 4: symAllowed4(rank,nqnum,ndims,status,allowed,a0,a1,a2,a3,a4,a5,a6,a7); break;
+      case 5: symAllowed5(rank,nqnum,ndims,status,allowed,a0,a1,a2,a3,a4,a5,a6,a7); break;
+      case 6: symAllowed6(rank,nqnum,ndims,status,allowed,a0,a1,a2,a3,a4,a5,a6,a7); break;
+      case 7: symAllowed7(rank,nqnum,ndims,status,allowed,a0,a1,a2,a3,a4,a5,a6,a7); break;
+      case 8: symAllowed8(rank,nqnum,ndims,status,allowed,a0,a1,a2,a3,a4,a5,a6,a7); break;
+      default : printf("error\n"); exit(1);
+   }
    return 0;
 }
